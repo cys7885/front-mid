@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+</head>
+<style>
+    span { display: inline-block; margin: 5px; padding: 8px 15px; 
+      border: 1px solid black; cursor: pointer; }
+</style>
+<body>
+  <div id="app">
+    <input type="text" v-model="value" />
+    <button v-on:click="add()">생성</button> <br>
+    <span v-for="i in num">
+        {{ i }}
+    </span>  
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        num: [],
+        value: "0"
+      },
+      methods:{
+        add: function() {
+            this.num = [];
+            for(let i=0; i<this.value; ++i){
+                let val = Math.floor(Math.random()*10);
+                Vue.set(this.num, i, val);
+            }
+        },
+      }
+    })
+   </script>
+</body>
+</html>
