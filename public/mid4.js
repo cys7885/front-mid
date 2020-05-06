@@ -14,6 +14,8 @@ let c = arr.reduce((a,b) => {
             count++;
 })*/
 
-let count = arr.filter(e => e % 2 ==0).length;
-
-console.log(count);
+let arr2 = arr.reduce((count,cur) => { 
+    if(cur%2 == 0) count++ 
+    return count},[]
+);
+console.log(arr2);
