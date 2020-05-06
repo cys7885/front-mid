@@ -12,7 +12,6 @@
 </style>
 <body>
   <div id="app">
-    <button v-on:click="add()">++</button> <br>
     <div id="box">
         {{ value }}
     </div>  
@@ -24,12 +23,11 @@
         num: [],
         value: "0"
       },
-      methods:{
-        add: function() {
-            this.value++;
-            this.$forceUpdate();
-            }
-        },
+      methods:{},
+      mounted: function() {
+        let callback = () => this.value++;
+        setInterval(callback, 1000);
+      }
     })
    </script>
 </body>
